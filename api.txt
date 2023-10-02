@@ -1,0 +1,18 @@
+1. tạo approvers
+ POST: https://qa-api.atato.com/workspace/my-workspace/api/custody/approvers data {"name":"test rain 1"}
+ reponse: {"data": {"approver_id": "ef69f3cb-dfb0-4314-aa87-c69cf2031cf4", "activation_code": "820946"}}
+ 2. tạo rule
+ POST https://qa-api.atato.com/workspace/my-workspace/api/custody/rule-templates
+ data: {"name":"rule test","network_id":"84703c2b-2c33-4ebf-b195-ab3ec8beda71","approvers":["ef69f3cb-dfb0-4314-aa87-c69cf2031cf4"],"conditions":[],"action":"send_to_approver","type":"transfer"}
+response: {"data": {"id": "61f87770-d0c8-4e79-abf5-63c2ab556968", "name": "rule test"}}
+3. tạo ví: 
+
+POST https://qa-api.atato.com/workspace/my-workspace/api/custody/wallets
+
+data: {"name":"test rain 1","approvers":["ef69f3cb-dfb0-4314-aa87-c69cf2031cf4"],"description":"test rain 1","rules":["61f87770-d0c8-4e79-abf5-63c2ab5569683"],"network_id":null,"is_mainnet":"false"}
+
+reponse: {"data": {"id": "d9c00d7c-d53a-43a8-8f40-8f96b9224f7f", "name": "test rain 1", "description": "test rain 1"}}
+4. get token:
+POST: https://qa-api.atato.com/workspace/my-workspace/o/token/
+data : {"grant_type":"password","username":"thanh.vuvan@savvycomsoftware.com","password":"Vvtu_1z391","recaptcha_token":"03AFY_a8V2T6FtfMmGcfA1pqALQz54cKJPK9D25S2g23eexWHf07yx3xu2PNAva9bzQ1MkDu1_ARqpFImrHEyrMC0hrd8hm-RdW8SKFfKkjjgB4q_xJmuaY9zdCJne_V3ezkuFRyj8XoaitnDAzfeiLrK0_HXFBYReNZedR1DbWs_rX54qA3LVM2kj27bk70rCHJi18hdcvNK1CqkKmX_y3uu5QNG9zbm2Qq8eg6s7LNA8aHc6t80xLvFBehWKtKo9H-UYtxCmMq-QOok88UBQ4ex8yzhmPBzUjVvZF_o-uqa-b9QFhz81Jj1ruJsHIxUtOAEgoMz92VZCTYgmGq8bY_FVHKkqKF8VBxLnLrj8QPiT669v_lFt3DfpMM-BiPZOUD4pCoYLgUl0Tv6nhuvstSYP81Bu0OLKd-H63KlsEepbi6U0gGpaGroEylLh4FoE9ZTGn4CtScqwKoOiCSSa6hhl_vfbpn5MQmDxP3jY4augZgsV7FJUfxLoyai0Tj-KkZWUU11evLzqsLa43Hkit8hAlmqHuyYdshw6ZSjxtNUiCicWuYvpYu4","token":"rf6O_MdQBwalbXo1sncWUW6w8AfaVGOlVm9AMhLa2tQ"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1OTU5Mjk2LCJpYXQiOjE2NzU5NTU2OTYsImp0aSI6IjE1MTM3NWI3NGZiOTRjN2NiZDNlMzZkZmU3ZjI0ZWI5IiwidXNlcl9pZCI6IjY2YmI2NGIzLTVmMTctNDgzNi1hZWYyLTFjNGQ3YjliZTgxYyJ9.pd4VO3P3IM33gAhdZjTEeCoj38S-6yGwvmh6LiRgYlM","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3NjU2MDQ5NiwiaWF0IjoxNjc1OTU1Njk2LCJqdGkiOiJiNjJmNDU5YzY5ZWQ0YTZiYTQxZGIwNTRmZDhhZjBlOCIsInVzZXJfaWQiOiI2NmJiNjRiMy01ZjE3LTQ4MzYtYWVmMi0xYzRkN2I5YmU4MWMifQ.u41bxqRU8v1IYlKzW9peFb1GLozjcEqH8r03FBxQtL8","groups":["Admin"],"onboarding_step":"TRANSACTION_CREATED"}

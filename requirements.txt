@@ -1,0 +1,10 @@
+﻿Appium-Python-Client
+pytest
+pytest_bdd==5.0.0
+requests
+allure-pytest
+pytest-html
+pyotp
+openpyxl
+beautifulsoup4
+jsonpath
